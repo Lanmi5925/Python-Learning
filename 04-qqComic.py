@@ -79,6 +79,5 @@ if __name__ == '__main__':
 		url = 'http://ac.qq.com/ComicView/index/id/505430/cid/' + str(i)
 		n = loadPage(url, i, n)
 		i += 1
-
 	
 	browser.quit()
