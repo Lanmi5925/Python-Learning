@@ -1,7 +1,7 @@
 # Python-Learning
 刚开始学习Python编程，目前主要研究爬虫
 
-# 03-girllistpy
+# 03-girllist.py
 非常俗气的选择从妹子图开始练习爬虫，妹子图网站是个静态页面，有反爬虫机制，目前还没有解决
 
 # 04-qqComic.py
