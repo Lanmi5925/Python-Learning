@@ -75,7 +75,11 @@ def loadPage(url, name):
 	comicLinks = browser.find_elements_by_xpath('//div/ul/li[@style]/img')
 	j = 1 
 	path ="./Comic/" + name[4:]
-	os.makedirs(path)
+	try:
+		os.makedirs(path)
+	except:
+		path = "./Comic/" + name[4:9]
+		os.makedirs(path)
 	for element in comicLinks:
 		img_url = element.get_attribute('src')
 		write_image(img_url, j, path)
@@ -83,6 +87,7 @@ def loadPage(url, name):
 	print("----%s：已下载完毕----"%name[4:])
 	
 if __name__ == '__main__':
+	# browser = webdriver.PhantomJS()
 	browser = webdriver.Chrome()
 	file_name = './Comic/comic-info.json'
 	# 判断是否已经有存好信息的json文件
@@ -98,7 +103,7 @@ if __name__ == '__main__':
 	print("开始下载漫画")
 	read_list = read_info(file_name)
 	latest = int(input("请输入海贼王最新话"))
-	while count<=latest:
+	while count<latest:
 		now_file = eval(read_list[count])
 		name = list(now_file.keys())[0]
 		link = list(now_file.values())[0]
